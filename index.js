@@ -448,7 +448,7 @@ export default class VideoPlayer extends Component {
           <TouchableOpacity onPress={this.props.functionFullScreen} style={customStyles.controlButton}>
             <Icon
               style={[styles.extraControl, customStyles.controlIcon]}
-              name={this.props.isFullscreen ? 'fullscreen_exit' : 'fullscreen'}
+              name={this.props.isFullscreen ? 'fullscreen' : 'fullscreen'}
               size={32}
             />
           </TouchableOpacity>
