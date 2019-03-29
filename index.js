@@ -219,7 +219,7 @@ export default class VideoPlayer extends Component {
       isMuted,
     });
     this.showControls();
-    
+
   }
 
   onToggleFullScreen() {
@@ -394,7 +394,7 @@ export default class VideoPlayer extends Component {
             customStyles.seekBarProgress,
           ]}
         />
-        { !fullWidth && !disableSeek ? (
+        {!fullWidth && !disableSeek ? (
           <View
             style={[
               styles.seekBarKnob,
@@ -410,7 +410,7 @@ export default class VideoPlayer extends Component {
             onResponderRelease={this.onSeekRelease}
             onResponderTerminate={this.onSeekRelease}
           />
-        ) : null }
+        ) : null}
         <View style={[
           styles.seekBarBackground,
           { flexGrow: 1 - this.state.progress },
@@ -444,15 +444,15 @@ export default class VideoPlayer extends Component {
             />
           </TouchableOpacity>
         )}
-        {(Platform.OS === 'android' || this.props.disableFullscreen) ? null : (
-          <TouchableOpacity onPress={this.onToggleFullScreen} style={customStyles.controlButton}>
+        {(this.props.functionFullScreen && {}.toString.call(this.props.functionFullScreen) === '[object Function]') ? (
+          <TouchableOpacity onPress={this.props.functionFullScreen} style={customStyles.controlButton}>
             <Icon
               style={[styles.extraControl, customStyles.controlIcon]}
-              name="fullscreen"
+              name={this.props.isFullscreen ? 'fullscreen_exit' : 'fullscreen'}
               size={32}
             />
           </TouchableOpacity>
-        )}
+        ) : null}
       </View>
     );
   }
