@@ -476,6 +476,7 @@ export default class VideoPlayer extends Component {
             this.getSizeStyles(),
             style,
             customStyles.video,
+            {backgroundColor:'black'}
           ]}
           ref={p => { this.player = p; }}
           muted={this.props.muted || this.state.isMuted}
